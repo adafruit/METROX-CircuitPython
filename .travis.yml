@@ -1,0 +1,20 @@
+# This is a common .travis.yml for generating library release zip files for
+# CircuitPython library releases using circuitpython-build-tools.
+# See https://github.com/adafruit/circuitpython-build-tools for detailed setup
+# instructions.
+
+dist: trusty
+sudo: false
+language: python
+python:
+    - "3.6"
+
+cache:
+    pip: true
+
+install:
+  - pip install pylint circuitpython-build-tools
+
+script:
+  - pylint *.py
+  - ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
