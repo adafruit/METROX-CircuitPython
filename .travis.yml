@@ -16,5 +16,13 @@ install:
   - pip install pylint circuitpython-build-tools
 
 script:
-  - pylint *.py
-  - ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
+    # loop all circ directories and run pylint within each one
+  - pylint CIRC00/*.py
+    pylint CIRC01/*.py
+    pylint CIRC02/*.py
+    pylint CIRC03/*.py
+    pylint CIRC04/*.py
+    pylint CIRC05/*.py
+    pylint CIRC06/*.py
+    pylint CIRC07/*.py
+    pylint CIRC08/*.py

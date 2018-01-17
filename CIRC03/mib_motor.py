@@ -2,38 +2,40 @@
 'mib_motor.py'.
 
 =================================================
-spins a DC motor using pulseio
+spins a DC Motor using pulseio
 """
 
+import time
 import board
 import pulseio
-import time
 
-motorPin = board.D9
-motor = pulseio.PWMOut(motorPin, frequency=1000)
-
-
-def motorOnThenOffwithSpeed():
-    onSpeed = 0.80
-    onTime = 2.5
-    offSpeed = 0.10
-    offTime = 1.0
-    motor.duty_cycle = int(onSpeed * 65535)
-    time.sleep(onTime)
-    motor.duty_cycle = int(offSpeed * 65535)
-    time.sleep(offTime)
+MOTORPIN = board.D9
+MOTOR = pulseio.PWMOut(MOTORPIN, frequency=1000)
 
 
-def motorAcceleration():
-    delayTime = 0.05
+def motor_on_then_off_with_speed():
+    """turns the motor on, then off, using PWM."""
+    on_speed = 0.80
+    on_time = 2.5
+    off_speed = 0.10
+    off_time = 1.0
+    MOTOR.duty_cycle = int(on_speed * 65535)
+    time.sleep(on_time)
+    MOTOR.duty_cycle = int(off_speed * 65535)
+    time.sleep(off_time)
+
+
+def motor_acceleration():
+    """accelerates the motor forwards and backwards."""
+    delay_time = 0.05
     for speed in range(0, 100, 1):
-        motor.duty_cycle = int(speed / 100 * 65535)
-        time.sleep(delayTime)
+        MOTOR.duty_cycle = int(speed / 100 * 65535)
+        time.sleep(delay_time)
     for speed in range(100, 0, -1):
-        motor.duty_cycle = int(speed / 100 * 65535)
-        time.sleep(delayTime)
+        MOTOR.duty_cycle = int(speed / 100 * 65535)
+        time.sleep(delay_time)
 
 
 while True:
-    motorOnThenOffwithSpeed()
-    # motorAcceleration()
+    motor_on_then_off_with_speed()
+    # motor_acceleration()
