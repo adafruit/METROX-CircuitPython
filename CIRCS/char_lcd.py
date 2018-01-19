@@ -1,7 +1,7 @@
 """
-'char_lcd.py'
+'char_LCD.py'
 =================================================
-hello world using 16x2 character lcd
+hello world using 16x2 character LCD
 requires:
 - CircuitPython_CharLCD Module
 """
@@ -12,50 +12,50 @@ import adafruit_character_lcd
 from board import D7, D8, D9, D10, D11, D12, D13
 
 #   Character LCD Config:
-#   modify this if you have a different sized charlcd
-lcd_columns = 16
-lcd_rows = 2
+#   modify this if you have a different sized charLCD
+LCD_COLUMNS = 16
+LCD_ROWS = 2
 
 #   Metro Express Pin Config:
-lcd_rs = digitalio.DigitalInOut(D7)
-lcd_en = digitalio.DigitalInOut(D8)
-lcd_d7 = digitalio.DigitalInOut(D12)
-lcd_d6 = digitalio.DigitalInOut(D11)
-lcd_d5 = digitalio.DigitalInOut(D10)
-lcd_d4 = digitalio.DigitalInOut(D9)
-lcd_backlight = digitalio.DigitalInOut(D13)
+LCD_RS = digitalio.DigitalInOut(D7)
+LCD_EN = digitalio.DigitalInOut(D8)
+LCD_D7 = digitalio.DigitalInOut(D12)
+LCD_D6 = digitalio.DigitalInOut(D11)
+LCD_D5 = digitalio.DigitalInOut(D10)
+LCD_D4 = digitalio.DigitalInOut(D9)
+LCD_BACKLIGHT = digitalio.DigitalInOut(D13)
 
-#   Init the lcd class
-lcd = adafruit_character_lcd.Character_LCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,
-                                           lcd_d7, lcd_columns, lcd_rows, lcd_backlight)
+#   Init the LCD class
+LCD = adafruit_character_lcd.Character_LCD(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6,
+                                           LCD_D7, LCD_COLUMNS, LCD_ROWS, LCD_BACKLIGHT)
 
 #   Print a 2x line message
-lcd.message('hello\ncircuitpython')
+LCD.message('hello\ncircuitpython')
 # Wait 5s
 time.sleep(5)
 #   Demo showing cursor
-lcd.clear()
-lcd.show_cursor(True)
-lcd.message('showing cursor ')
+LCD.clear()
+LCD.show_cursor(True)
+LCD.message('showing cursor ')
 #   Wait 5s
 time.sleep(5)
 #   Demo showing the blinking cursor
-lcd.clear()
-lcd.blink(True)
-lcd.message('Blinky Cursor!')
+LCD.clear()
+LCD.blink(True)
+LCD.message('Blinky Cursor!')
 #   Wait 5s
 time.sleep(5)
-lcd.blink(False)
+LCD.blink(False)
 #   Demo scrolling message LEFT
-lcd.clear()
-scroll_msg = 'Scroll'
-lcd.message(scroll_msg)
+LCD.clear()
+SCROLL_MSG = 'Scroll'
+LCD.message(SCROLL_MSG)
 #   Scroll to the left
-for i in range(lcd_columns - len(scroll_msg)):
+for i in range(LCD_COLUMNS - len(SCROLL_MSG)):
     time.sleep(0.5)
-    lcd.move_left()
+    LCD.move_left()
 #   Demo turning backlight off
-lcd.clear()
-lcd.message("going to sleep\ncya later!")
-lcd.set_backlight(False)
+LCD.clear()
+LCD.message("going to sleep\ncya later!")
+LCD.set_backlight(False)
 time.sleep(2)

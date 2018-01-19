@@ -1,7 +1,7 @@
 """
-'mib_char_lcd_light.py'
+'mib_char_LCD_light.py'
 =================================================
-light sensor circuit. displays output on charlcd
+light sensor circuit. displays output on charLCD
 requires:
 - CircuitPython_CharLCD Module
 """
@@ -13,30 +13,29 @@ import adafruit_character_lcd
 from board import D7, D8, D9, D10, D11, D12, D13, A0
 
 #   Character LCD Config:
-#   modify this if you have a different sized charlcd
-lcd_columns = 16
-lcd_rows = 2
+#   modify this if you have a different sized charLCD
+LCD_COLS = 16
+LCD_ROWS = 2
 
 #   Metro Express Pin Config:
-lcd_rs = digitalio.DigitalInOut(D7)
-lcd_en = digitalio.DigitalInOut(D8)
-lcd_d7 = digitalio.DigitalInOut(D12)
-lcd_d6 = digitalio.DigitalInOut(D11)
-lcd_d5 = digitalio.DigitalInOut(D10)
-lcd_d4 = digitalio.DigitalInOut(D9)
-lcd_backlight = digitalio.DigitalInOut(D13)
+LCD_RS = digitalio.DigitalInOut(D7)
+LCD_EN = digitalio.DigitalInOut(D8)
+LCD_D7 = digitalio.DigitalInOut(D12)
+LCD_D6 = digitalio.DigitalInOut(D11)
+LCD_D5 = digitalio.DigitalInOut(D10)
+LCD_D4 = digitalio.DigitalInOut(D9)
+LCD_BACKLIGHT = digitalio.DigitalInOut(D13)
 
-light = analogio.AnalogIn(A0)
+LIGHT_SENSOR = analogio.AnalogIn(A0)
 
-#   Init the lcd class
-lcd = adafruit_character_lcd.Character_LCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,
-                                           lcd_d7, lcd_columns, lcd_rows, lcd_backlight)
+#   Init the LCD class
+LCD = adafruit_character_lcd.Character_LCD(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6,
+                                           LCD_D7, LCD_COLS, LCD_ROWS, LCD_BACKLIGHT)
 
 while True:
-    lcd.clear()
-    percent = str(100-((light.value/65535)*100))
-    nice = percent[:percent.find('.')]
-    lcd.message(nice + "% bright")
-    lcd.message(str(light.value))
+    LCD.clear()
+    LIGHT_VAL = str(100-((LIGHT_SENSOR.value/65535)*100))
+    LIGHT_VAL_NICE = LIGHT_VAL[:LIGHT_VAL.find('.')]
+    LCD.message(LIGHT_VAL_NICE + "% bright")
+    LCD.message(str(LIGHT_SENSOR.value))
     time.sleep(1)
-    # increment our elapsed_secs variable each time a second passes
