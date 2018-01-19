@@ -17,19 +17,4 @@ install:
 
 script:
     # test all circ's separately
-  - pylint CIRC00/*.py
-    pylint CIRC01/*.py
-    pylint CIRC02/*.py
-    pylint CIRC03/*.py
-    pylint CIRC04/*.py
-    pylint CIRC05/*.py
-    pylint CIRC06/*.py
-    pylint CIRC07/*.py
-    pylint CIRC08/*.py
-    pylint CIRC09/*.py
-    pylint CIRC10/*.py
-    pylint CIRC11/*.py
-    pylint CIRC12/*.py
-    pylint CIRC13/*.py
-    pylint CIRC14/*.py
-    pylint CIRC10.5/*.py
+  - pylint CIRCS/*.py
