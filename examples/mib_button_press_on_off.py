@@ -2,22 +2,22 @@
 'button_press_on_off.py'.
 
 =================================================
-lightswitch-like operation with two buttons and a LED
+lightswitch-like operation with two buttons and a led
 """
 
 import board
 import digitalio
 
-LED = digitalio.DigitalInOut(board.D13)
-LED.switch_to_output()
-BUTTON1 = digitalio.DigitalInOut(board.D2)
-BUTTON1.switch_to_input()
-BUTTON2 = digitalio.DigitalInOut(board.D3)
-BUTTON2.switch_to_input()
+led = digitalio.DigitalInOut(board.D13)
+led.switch_to_output()
+btn1 = digitalio.DigitalInOut(board.D2)
+btn1.switch_to_input()
+btn2 = digitalio.DigitalInOut(board.D3)
+btn2.switch_to_input()
 
 
 while True:
-    if not BUTTON1.value:
-        LED.value = False
-    elif not BUTTON2.value:
-        LED.value = True
+    if not btn1.value:
+        led.value = False
+    elif not btn2.value:
+        led.value = True

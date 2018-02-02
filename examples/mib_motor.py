@@ -2,15 +2,15 @@
 'mib_motor.py'.
 
 =================================================
-spins a DC Motor using pulseio
+spins a DC motor using pulseio
 """
 
 import time
 import board
 import pulseio
 
-MOTORPIN = board.D9
-MOTOR = pulseio.PWMOut(MOTORPIN, frequency=1000)
+motor_pin = board.D9
+motor = pulseio.PWMOut(motor_pin, frequency=1000)
 
 
 def motor_on_then_off_with_speed():
@@ -19,9 +19,9 @@ def motor_on_then_off_with_speed():
     on_time = 2.5
     off_speed = 0.10
     off_time = 1.0
-    MOTOR.duty_cycle = int(on_speed * 65535)
+    motor.duty_cycle = int(on_speed * 65535)
     time.sleep(on_time)
-    MOTOR.duty_cycle = int(off_speed * 65535)
+    motor.duty_cycle = int(off_speed * 65535)
     time.sleep(off_time)
 
 
@@ -29,10 +29,10 @@ def motor_acceleration():
     """accelerates the motor forwards and backwards."""
     delay_time = 0.05
     for speed in range(0, 100, 1):
-        MOTOR.duty_cycle = int(speed / 100 * 65535)
+        motor.duty_cycle = int(speed / 100 * 65535)
         time.sleep(delay_time)
     for speed in range(100, 0, -1):
-        MOTOR.duty_cycle = int(speed / 100 * 65535)
+        motor.duty_cycle = int(speed / 100 * 65535)
         time.sleep(delay_time)
 
 

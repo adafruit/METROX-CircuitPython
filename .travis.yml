@@ -1,7 +1,4 @@
-# This is a common .travis.yml for generating library release zip files for
-# CircuitPython library releases using circuitpython-build-tools.
-# See https://github.com/adafruit/circuitpython-build-tools for detailed setup
-# instructions.
+# MetroX-CircuitPython travis.yml
 
 dist: trusty
 sudo: false
@@ -16,5 +13,4 @@ install:
   - pip install pylint circuitpython-build-tools
 
 script:
-    # test all circ's separately
-  - pylint CIRCS/*.py
+    pylint --disable=missing-docstring,invalid-name examples/*.py

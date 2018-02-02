@@ -11,12 +11,6 @@ import board
 import pulseio
 from simpleio import map_range
 
-RED_LED = pulseio.PWMOut(board.D9)
-GREEN_LED = pulseio.PWMOut(board.D10)
-BLUE_LED = pulseio.PWMOut(board.D11)
-
-RGB_LED_ARR = [RED_LED, GREEN_LED, BLUE_LED]
-
 RED = [100, 0, 0]
 ORANGE = [50, 5, 0]
 YELLOW = [100, 100, 0]
@@ -27,22 +21,26 @@ BLUE = [0, 0, 100]
 MAGENTA = [100, 0, 100]
 WHITE = [100, 100, 100]
 BLACK = [0, 0, 0]
+color_array = [RED, ORANGE, YELLOW, GREEN, TEAL, BLUE, CYAN, MAGENTA, WHITE, BLACK]
 
-COLOR_ARR = [RED, ORANGE, YELLOW, GREEN, TEAL, BLUE, CYAN, MAGENTA, WHITE, BLACK]
+red_led = pulseio.PWMOut(board.D9)
+green_led = pulseio.PWMOut(board.D10)
+blue_led = pulseio.PWMOut(board.D11)
 
+rgb_led_array = [red_led, green_led, blue_led]
 
 def set_color(color):
     """sets the rgb led's cathodes."""
     print("Setting (%0.2f, %0.2f, %0.2f)" % (color[0], color[1], color[2]))
-    RGB_LED_ARR[0].duty_cycle = int(map_range(color[0], 0, 100, 65535, 0))
-    RGB_LED_ARR[1].duty_cycle = int(map_range(color[1], 0, 100, 65535, 0))
-    RGB_LED_ARR[2].duty_cycle = int(map_range(color[2], 0, 100, 65535, 0))
+    rgb_led_array[0].duty_cycle = int(map_range(color[0], 0, 100, 65535, 0))
+    rgb_led_array[1].duty_cycle = int(map_range(color[1], 0, 100, 65535, 0))
+    rgb_led_array[2].duty_cycle = int(map_range(color[2], 0, 100, 65535, 0))
 
 
 def random_color():
     """generates a random color."""
-    rnd_color = random.randrange(len(COLOR_ARR))
-    set_color(COLOR_ARR[rnd_color])
+    rnd_color = random.randrange(len(color_array))
+    set_color(color_array[rnd_color])
 
 while True:
     set_color(GREEN)

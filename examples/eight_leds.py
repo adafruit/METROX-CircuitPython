@@ -8,7 +8,7 @@ import time
 import board
 import digitalio
 
-LEDPINS = [digitalio.DigitalInOut(board.D2),
+led_pins = [digitalio.DigitalInOut(board.D2),
            digitalio.DigitalInOut(board.D3),
            digitalio.DigitalInOut(board.D4),
            digitalio.DigitalInOut(board.D5),
@@ -17,54 +17,54 @@ LEDPINS = [digitalio.DigitalInOut(board.D2),
            digitalio.DigitalInOut(board.D8),
            digitalio.DigitalInOut(board.D9)]
 
-for pin in LEDPINS:
+for pin in led_pins:
     pin.switch_to_output()
 
 def one_after_another_no_loop():
     """turns one LED on at a time, not looping at the end."""
     delay_time = 0.1
-    LEDPINS[0].value = True
+    led_pins[0].value = True
     time.sleep(delay_time)
-    LEDPINS[1].value = True
+    led_pins[1].value = True
     time.sleep(delay_time)
-    LEDPINS[2].value = True
+    led_pins[2].value = True
     time.sleep(delay_time)
-    LEDPINS[3].value = True
+    led_pins[3].value = True
     time.sleep(delay_time)
-    LEDPINS[4].value = True
+    led_pins[4].value = True
     time.sleep(delay_time)
-    LEDPINS[5].value = True
+    led_pins[5].value = True
     time.sleep(delay_time)
-    LEDPINS[6].value = True
+    led_pins[6].value = True
     time.sleep(delay_time)
-    LEDPINS[7].value = True
+    led_pins[7].value = True
     time.sleep(delay_time)
 
-    LEDPINS[7].value = False
+    led_pins[7].value = False
     time.sleep(delay_time)
-    LEDPINS[6].value = False
+    led_pins[6].value = False
     time.sleep(delay_time)
-    LEDPINS[5].value = False
+    led_pins[5].value = False
     time.sleep(delay_time)
-    LEDPINS[4].value = False
+    led_pins[4].value = False
     time.sleep(delay_time)
-    LEDPINS[3].value = False
+    led_pins[3].value = False
     time.sleep(delay_time)
-    LEDPINS[2].value = False
+    led_pins[2].value = False
     time.sleep(delay_time)
-    LEDPINS[1].value = False
+    led_pins[1].value = False
     time.sleep(delay_time)
-    LEDPINS[0].value = False
+    led_pins[0].value = False
     time.sleep(delay_time)
 
 
 def one_after_another_loop():
     """turns one LED on at a time, looping at the end."""
     delay_time = 0.1
-    for led in LEDPINS:
+    for led in led_pins:
         led.value = True
         time.sleep(delay_time)
-    for led in LEDPINS[::-1]:
+    for led in led_pins[::-1]:
         led.value = False
         time.sleep(delay_time)
 
@@ -72,12 +72,12 @@ def one_after_another_loop():
 def one_on_at_a_time():
     """turns one LED on at a time, looping at the end."""
     delay_time = 0.1
-    led_array_length = len(LEDPINS)
+    led_array_length = len(led_pins)
     for i in range(10 * led_array_length):
         j = i % led_array_length
-        LEDPINS[j].value = True
+        led_pins[j].value = True
         time.sleep(delay_time)
-        LEDPINS[j].value = False
+        led_pins[j].value = False
 
 
 def in_and_out():
@@ -92,7 +92,7 @@ def in_and_out():
         off_led1 = 3 - off_led
         off_led2 = 4 + off_led
         delay_time = 0.1
-        for pin_range in LEDPINS:
+        for pin_range in led_pins:
             for _ in range(10):
                 pin_range.value = True
                 time.sleep(delay_time)
@@ -106,10 +106,10 @@ def in_and_out():
         on_led_2 = 4 + i
         off_led1 = 3 - off_led
         off_led2 = 4 + off_led
-        LEDPINS[on_led_1].value = True
-        LEDPINS[on_led_2].value = True
-        LEDPINS[off_led1].value = False
-        LEDPINS[off_led2].value = False
+        led_pins[on_led_1].value = True
+        led_pins[on_led_2].value = True
+        led_pins[off_led1].value = False
+        led_pins[off_led2].value = False
         time.sleep(delay_time)
 
 

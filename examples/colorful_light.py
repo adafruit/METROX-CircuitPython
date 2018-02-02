@@ -8,11 +8,6 @@ RGB LED control with circuitpython
 import board
 import digitalio
 
-RED_LED = digitalio.DigitalInOut(board.D9)
-GREEN_LED = digitalio.DigitalInOut(board.D10)
-BLUE_LED = digitalio.DigitalInOut(board.D11)
-
-RGBLED = [RED_LED, GREEN_LED, BLUE_LED]
 RED = [True, False, False]
 GREEN = [False, True, False]
 BLUE = [False, False, True]
@@ -21,17 +16,24 @@ CYAN = [False, True, True]
 MAGENTA = [True, False, True]
 WHITE = [True, True, True]
 BLACK = [False, False, False]
-COLOR_ARRAY = [RED, GREEN, BLUE, YELLOW, CYAN, MAGENTA, WHITE, BLACK]
+color_array = [RED, GREEN, BLUE, YELLOW, CYAN, MAGENTA, WHITE, BLACK]
 
-for led in RGBLED:
+red_led = digitalio.DigitalInOut(board.D9)
+green_led = digitalio.DigitalInOut(board.D10)
+blue_led = digitalio.DigitalInOut(board.D11)
+
+rgb_led = [red_led, green_led, blue_led]
+
+
+for led in rgb_led:
     led.switch_to_output()
 
 
 def set_color(color):
     """sets the rgb led's cathode value."""
-    RGBLED[0].value = not color[0]
-    RGBLED[1].value = not color[1]
-    RGBLED[2].value = not color[2]
+    rgb_led[0].value = not color[0]
+    rgb_led[1].value = not color[1]
+    rgb_led[2].value = not color[2]
 
 
 while True:
