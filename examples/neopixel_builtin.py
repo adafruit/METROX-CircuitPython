@@ -2,7 +2,7 @@
 'neopixel_builtin.py'.
 
 =================================================
-control a LED with an IR Remote
+playing with the metro express builtin NeoPixel
 """
 
 import time

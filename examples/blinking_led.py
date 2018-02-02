@@ -9,9 +9,7 @@ import time
 import digitalio
 import board
 
-# create a DigitalInOut object
 LED = digitalio.DigitalInOut(board.D13)
-# LED pin should be used as an output
 LED.switch_to_output()
 
 while True:

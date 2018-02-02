@@ -3,8 +3,6 @@
 
 =================================================
 spin a DC MOTOR using digitalio
-requires
-- Adafruit_CircuitPython_Motor
 """
 
 import time
