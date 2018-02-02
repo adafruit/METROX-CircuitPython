@@ -9,10 +9,11 @@ import board
 import digitalio
 
 led = digitalio.DigitalInOut(board.D13)
-led.switch_to_output()
 btn1 = digitalio.DigitalInOut(board.D2)
-btn1.switch_to_input()
 btn2 = digitalio.DigitalInOut(board.D3)
+
+led.switch_to_output()
+btn1.switch_to_input()
 btn2.switch_to_input()
 
 
