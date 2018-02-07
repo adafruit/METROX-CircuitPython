@@ -8,13 +8,8 @@ import digitalio
 import board
 
 led = digitalio.DigitalInOut(board.D13)
-<<<<<<< HEAD
 button = digitalio.DigitalInOut(board.D2)
 led.switch_to_output()
-=======
-led.switch_to_output()
-button = digitalio.DigitalInOut(board.D2)
->>>>>>> adafruit/master
 button.switch_to_input()
 
 
