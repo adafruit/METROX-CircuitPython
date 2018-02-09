@@ -2,11 +2,7 @@
 'temperature.py'.
 
 =================================================
-<<<<<<< HEAD
 Writes tmp_value36 data to the REPL
-=======
-Writes TMP36 data to the REPL
->>>>>>> adafruit/master
 """
 
 import time

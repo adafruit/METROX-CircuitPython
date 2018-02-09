@@ -15,7 +15,6 @@ led.switch_to_output()
 
 threshold_value = 60000
 
-
 while True:
     if light_sensor.value > threshold_value:
         led.value = True
