@@ -1,5 +1,5 @@
-# MetroX-CircuitPython travis.yml
-
+# travis.yml
+# for METROX-CircuitPython
 dist: trusty
 sudo: false
 language: python
@@ -13,4 +13,7 @@ install:
   - pip install pylint circuitpython-build-tools
 
 script:
-    pylint --disable=missing-docstring,invalid-name examples/*.py
+    # lint all the circs 
+    pylint --disable=missing-docstring,invalid-name circ/*.py
+    # lint all the projects
+    pylint --disable=missing-docstring,invalid-name proj/*.py

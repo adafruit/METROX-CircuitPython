@@ -11,10 +11,11 @@ import board
 import pulseio
 from adafruit_motor import servo
 
-SERVO = servo.Servo(pulseio.PWMOut(board.D9))
+servo = servo.Servo(pulseio.PWMOut(board.D9))
+
 
 while True:
-    SERVO.angle = 0
+    servo.angle = 0
     time.sleep(2)
-    SERVO.angle = 90
+    servo.angle = 90
     time.sleep(2)

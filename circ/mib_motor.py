@@ -9,8 +9,7 @@ import time
 import board
 import pulseio
 
-motor_pin = board.D9
-motor = pulseio.PWMOut(motor_pin, frequency=1000)
+motor = pulseio.PWMOut(board.D9, frequency=1000)
 
 
 def motor_on_then_off_with_speed():

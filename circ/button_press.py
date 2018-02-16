@@ -8,8 +8,8 @@ import digitalio
 import board
 
 led = digitalio.DigitalInOut(board.D13)
-led.switch_to_output()
 button = digitalio.DigitalInOut(board.D2)
+led.switch_to_output()
 button.switch_to_input()
 
 
