@@ -10,7 +10,7 @@ import board
 import neopixel
 
 # we only have one neopixel on our metro express
-metro_neopixel = neopixel.NeoPixel(board.metro_neopixelPIXEL, 1)
+metro_neopixel = neopixel.NeoPixel(board.NEOPIXEL, 1)
 metro_neopixel.brightness = 0.5
 
 # primary colors
