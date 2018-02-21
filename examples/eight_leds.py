@@ -9,13 +9,13 @@ import board
 import digitalio
 
 led_pins = [digitalio.DigitalInOut(board.D2),
-           digitalio.DigitalInOut(board.D3),
-           digitalio.DigitalInOut(board.D4),
-           digitalio.DigitalInOut(board.D5),
-           digitalio.DigitalInOut(board.D6),
-           digitalio.DigitalInOut(board.D7),
-           digitalio.DigitalInOut(board.D8),
-           digitalio.DigitalInOut(board.D9)]
+            digitalio.DigitalInOut(board.D3),
+            digitalio.DigitalInOut(board.D4),
+            digitalio.DigitalInOut(board.D5),
+            digitalio.DigitalInOut(board.D6),
+            digitalio.DigitalInOut(board.D7),
+            digitalio.DigitalInOut(board.D8),
+            digitalio.DigitalInOut(board.D9)]
 
 for pin in led_pins:
     pin.switch_to_output()
