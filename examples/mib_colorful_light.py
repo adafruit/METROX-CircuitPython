@@ -2,10 +2,13 @@
 'mib_colorful_light.py'.
 
 =================================================
-RGB LED control with circuitpython
+random RGB LED color selection with pulseio
+
 requires:
 -simpleio
 """
+
+import time
 import random
 import board
 import pulseio
@@ -43,4 +46,5 @@ def random_color():
     set_color(color_array[rnd_color])
 
 while True:
-    set_color(GREEN)
+    random_color()
+    time.sleep(2)

@@ -8,6 +8,8 @@ import time
 import board
 import digitalio
 
+delay_time = 0.1
+
 led_pins = [digitalio.DigitalInOut(board.D2),
             digitalio.DigitalInOut(board.D3),
             digitalio.DigitalInOut(board.D4),
@@ -22,7 +24,6 @@ for pin in led_pins:
 
 def one_after_another_no_loop():
     """turns one LED on at a time, not looping at the end."""
-    delay_time = 0.1
     led_pins[0].value = True
     time.sleep(delay_time)
     led_pins[1].value = True
@@ -60,7 +61,6 @@ def one_after_another_no_loop():
 
 def one_after_another_loop():
     """turns one LED on at a time, looping at the end."""
-    delay_time = 0.1
     for led in led_pins:
         led.value = True
         time.sleep(delay_time)
@@ -71,7 +71,6 @@ def one_after_another_loop():
 
 def one_on_at_a_time():
     """turns one LED on at a time, looping at the end."""
-    delay_time = 0.1
     led_array_length = len(led_pins)
     for i in range(10 * led_array_length):
         j = i % led_array_length
@@ -82,7 +81,6 @@ def one_on_at_a_time():
 
 def in_and_out():
     """fades the LEDs in and out."""
-    delay_time = 0.1
     for i in range(3):
         off_led = i - 1
         if i == 0:
@@ -91,7 +89,6 @@ def in_and_out():
         on_led_2 = 4 + i
         off_led1 = 3 - off_led
         off_led2 = 4 + off_led
-        delay_time = 0.1
         for pin_range in led_pins:
             for _ in range(10):
                 pin_range.value = True
@@ -114,7 +111,7 @@ def in_and_out():
 
 
 while True:
-    # one_after_another_no_loop()
+    one_after_another_no_loop()
     # one_after_another_loop()
     # one_on_at_a_time()
-    in_and_out()
+    # in_and_out()

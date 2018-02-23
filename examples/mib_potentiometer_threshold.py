@@ -12,7 +12,7 @@ LED = digitalio.DigitalInOut(board.D13)
 LED.switch_to_output()
 POT = analogio.AnalogIn(board.A0)
 
-THRESHOLD = 10000
+THRESHOLD = 512
 
 while True:
     if POT.value > THRESHOLD:

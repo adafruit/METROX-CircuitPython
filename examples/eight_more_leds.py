@@ -1,5 +1,5 @@
 """
-'8_more_leds.py'.
+'eight_more_leds.py'.
 
 =================================================
 LED light show with a 74HC595 shift register
@@ -10,11 +10,11 @@ import board
 import digitalio
 
 
-DATA = digitalio.DigitalInOut(board.d2)
+DATA = digitalio.DigitalInOut(board.D2)
 DATA.switch_to_output()
-CLK = digitalio.DigitalInOut(board.d3)
+CLK = digitalio.DigitalInOut(board.D3)
 CLK.switch_to_output()
-LATCH = digitalio.DigitalInOut(board.d4)
+LATCH = digitalio.DigitalInOut(board.D4)
 LATCH.switch_to_output()
 
 LED_STATE = 0
