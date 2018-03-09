@@ -10,7 +10,7 @@ import analogio
 import board
 from simpleio import map_range
 
-TEMP_SENSOR = analogio.AnalogIn(board.A0)
+temp_sensor = analogio.AnalogIn(board.A0)
 
 
 def get_voltage(_temp_sensor):
@@ -20,9 +20,8 @@ def get_voltage(_temp_sensor):
 
 
 while True:
-    TMP = get_voltage(TEMP_SENSOR)
-    print("Voltage =", TMP, end="")
+    temp = get_voltage(temp_sensor)
     # convert to celsius
-    TMP = (TMP - 0.5) * 100
-    print("   Temperature =", TMP)
+    temp = (temp - 0.5) * 100
+    print("   Temperature =", temp)
     time.sleep(1)
