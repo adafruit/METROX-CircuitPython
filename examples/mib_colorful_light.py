@@ -11,7 +11,7 @@ requires:
 import time
 import random
 import board
-import pulseio
+import pwmio
 from simpleio import map_range
 
 RED = [100, 0, 0]
@@ -26,9 +26,9 @@ WHITE = [100, 100, 100]
 BLACK = [0, 0, 0]
 color_array = [RED, ORANGE, YELLOW, GREEN, TEAL, BLUE, CYAN, MAGENTA, WHITE, BLACK]
 
-red_led = pulseio.PWMOut(board.D9)
-green_led = pulseio.PWMOut(board.D10)
-blue_led = pulseio.PWMOut(board.D11)
+red_led = pwmio.PWMOut(board.D9)
+green_led = pwmio.PWMOut(board.D10)
+blue_led = pwmio.PWMOut(board.D11)
 
 rgb_led_array = [red_led, green_led, blue_led]
 
